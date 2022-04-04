@@ -8,6 +8,33 @@
     <title>Game</title>
 </head>
 <body>
-   
+   <div id="app">
+       <div class="layout">
+        <div class="player jogador">
+            <p>Jogador</p>
+            <div class="barra-progresso">
+                <div class="p-jogador"></div>
+            </div>
+            <p>0%</p>
+        </div>
+        <div class="player monstro">
+            <p>Monstro</p>
+            <div class="barra-progresso">
+                <div class="p-mostro"></div>
+            </div>
+            <p>0%</p>
+        </div>
+    </div>
+    <div class="layout">
+        <button class="ataque">ATAQUE</button>
+        <button class="ataqueEspecial">ATAQUE ESPECIAL</button>
+        <button class="curar">CURAR</button>
+        <button class="desistir">DESISTIR</button>
+    </div>
+    <div class="layout mensagens">
+        <div class="atacar monstroAtaque">Monstro atingiu Jogador com ...</div>
+        <div class="atacar jogadorAtaque">Jogador atingiu Monstro com ...</div>
+    </div>
+   </div>
 </body>
 </html>

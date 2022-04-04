@@ -1,4 +1,73 @@
 *{
     margin: 0;
     padding: 0;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
 }
+
+.layout{
+    display: flex;
+    padding: 3vh;
+    box-shadow: 5px 5px 5px rgb(196, 191, 191);
+    margin: 2vh;
+    justify-content: center;
+}
+
+.mensagens{
+    flex-direction: column;
+    color: #fff;
+    text-align: center;
+}
+
+.atacar{
+    margin: 0.5vh 2vh;
+    padding: 0.7vh;
+}
+
+.monstroAtaque{
+    background-color: rgb(228, 74, 74);
+}
+
+.jogadorAtaque{
+    background-color: rgb(65, 182, 65);
+}
+
+.player{
+    margin: 0 10vh ;
+    font-size: 30px;
+    text-align: center;
+}
+
+button{
+    padding: 1vh;
+    margin: 1vh;
+    color:white;
+    border-radius: 5px;
+    border: 1px solid #000;
+}
+
+.ataque{
+    background-color: red;
+}
+
+.ataqueEspecial{
+    background-color: orange;
+}
+
+.curar{
+    background-color: green;
+}
+
+.desistir{
+    background-color: gray;
+}
+
+.barra-progresso {
+	height: 30px;
+	width: 500px;
+	border: 1px solid #000;
+    margin-top: 3vh;
+}
+/* .progresso {
+	background-color: red;
+	height: 20%;
+} */
