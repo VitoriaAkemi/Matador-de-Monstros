@@ -47,7 +47,7 @@
                 <button @click="ataque" class="btn ataque">ATAQUE</button>
                 <button @click="ataqueEspecial" class=" btn ataqueEspecial">ATAQUE ESPECIAL</button>
                 <button @click="curar" class="btn curar">CURAR</button>
-                <button class="btn desistir">DESISTIR</button>
+                <button @click="iniciarJogo" class="btn desistir">DESISTIR</button>
             </div>
             <div v-else>
                 <button @click="iniciarJogo" class="btn novoJogo">INICIAR NOVO JOGO</button>
