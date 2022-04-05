@@ -5,8 +5,13 @@ new Vue({
         primeiroAtaque: false,
         vidaMonstro: 100,
         vidaJogador: 100,
-        width: 100
+        rodadas: 0
+    },
 
+    watch:{
+        vidaJogador(n, a){
+            return a-n
+        }
     },
 
     methods:{
@@ -27,23 +32,34 @@ new Vue({
         },
 
         ataque(){
-            this.danoJogador(this.random()*2)
-            this.danoMonstro(this.random())
+            let n = this.random()
+            this.danoJogador(n*2)
+            this.danoMonstro(n)
             this.primeiroAtaque = true
             this.validaVida()
+            return n
         },
 
         ataqueEspecial(){
-            this.danoJogador(this.random())
-            this.danoMonstro(this.random()*2)
+            let n = this.random()
+            this.danoJogador(n)
+            this.danoMonstro(n*2)
             this.primeiroAtaque = true
             this.validaVida()
+            return n 
         },
 
         curar(){
             this.cura(this.random())
             this.danoJogador(this.random())
             this.validaVida()
+        },
+
+        iniciarJogo(){
+            this.vidaJogador = 100
+            this.vidaMonstro = 100
+            this.primeiroAtaque = false
+            rodadas = 0
         },
 
         validaVida(){
@@ -53,7 +69,13 @@ new Vue({
             if (this.vidaMonstro < 0){
                 this.vidaMonstro = 0
             }
+            this.rodadas++
+            this.vidaBaixa()
         }
+
+
+
+
 
     }
 })

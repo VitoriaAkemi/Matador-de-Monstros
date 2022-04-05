@@ -18,7 +18,7 @@
             <div class="player jogador">
                 <p>Jogador</p>
                 <div class="barra-progresso">
-                    <div class="vida" :style="{width : `${vidaJogador}%`}"></div>
+                    <div class="vida" :style="[{width : `${vidaJogador}%`}, {background : vidaJogador < 20 ?  'red' : 'green'}]"></div>
                 </div>
                 <p>{{ vidaJogador }}%</p>
             </div>
@@ -26,7 +26,7 @@
             <div class="player monstro">
                 <p>Monstro</p>
                 <div class="barra-progresso">
-                    <div class="vida" :style="{width : `${this.vidaMonstro}%`}"></div>
+                    <div class="vida" :style="[{width : `${this.vidaMonstro}%`}, {background : vidaMonstro < 20 ?  'red' : 'green'}]"></div>
                 </div>
                 <p>{{ vidaMonstro }}%</p>
             </div>
@@ -43,16 +43,22 @@
         </div>
 
         <div class="layout">
-            <button @click="ataque" class="btn ataque">ATAQUE</button>
-            <button @click="ataqueEspecial" class=" btn ataqueEspecial">ATAQUE ESPECIAL</button>
-            <button @click="curar" class="btn curar">CURAR</button>
-            <button class="desistir">DESISTIR</button>
+            <div v-if="vidaMonstro != 0 && vidaJogador != 0">
+                <button @click="ataque" class="btn ataque">ATAQUE</button>
+                <button @click="ataqueEspecial" class=" btn ataqueEspecial">ATAQUE ESPECIAL</button>
+                <button @click="curar" class="btn curar">CURAR</button>
+                <button class="btn desistir">DESISTIR</button>
+            </div>
+            <div v-else>
+                <button @click="iniciarJogo" class="btn novoJogo">INICIAR NOVO JOGO</button>
+            </div>
+
         </div>
 
-        <div class="layout mensagens" v-if="primeiroAtaque" >
-            <div class="atacar monstroAtaque">Monstro atingiu Jogador com ...</div>
+        <template class="layout" v-if="primeiroAtaque" v-for="r in rodadas">
+            <div class="atacar monstroAtaque">Monstro atingiu Jogador com {{ vidaJogador }}</div>
             <div class="atacar jogadorAtaque">Jogador atingiu Monstro com ...</div>
-        </div>
+        </template>
 
     </div>
 </body>

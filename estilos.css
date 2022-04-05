@@ -12,15 +12,11 @@
     justify-content: center;
 }
 
-.mensagens{
-    flex-direction: column;
-    color: #fff;
-    text-align: center;
-}
-
 .atacar{
     margin: 0.5vh 2vh;
     padding: 0.7vh;
+    color: #fff;
+    text-align: center;
 }
 
 .monstroAtaque{
@@ -61,6 +57,10 @@
     background-color: gray;
 }
 
+.novoJogo{
+    background-color: blue;
+}
+
 .rVenceu{
     color: green;
     font-weight: bold;
@@ -79,6 +79,5 @@
 }
 
 .vida{
-    background-color: green;
     height: 100%;
 }
