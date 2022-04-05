@@ -30,22 +30,29 @@ new Vue({
             this.danoJogador(this.random()*2)
             this.danoMonstro(this.random())
             this.primeiroAtaque = true
-            this.vidaJ()
-            this.vidaM()
+            this.validaVida()
         },
 
         ataqueEspecial(){
             this.danoJogador(this.random())
             this.danoMonstro(this.random()*2)
             this.primeiroAtaque = true
-            this.vidaJ()
-            this.vidaM()
+            this.validaVida()
         },
 
         curar(){
             this.cura(this.random())
             this.danoJogador(this.random())
-            this.vidaJ()
+            this.validaVida()
+        },
+
+        validaVida(){
+            if (this.vidaJogador < 0){
+                this.vidaJogador = 0
+            }
+            if (this.vidaMonstro < 0){
+                this.vidaMonstro = 0
+            }
         }
 
     }

@@ -1,49 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    
+
     <link rel="stylesheet" href="estilos.css">
     <title>Game</title>
 </head>
+
 <body>
-   <div id="app">
+    <div id="app">
 
-       <div class="layout">
+        <div class="layout">
 
-        <div class="player jogador">
-            <p>Jogador</p>
-            <div class="barra-progresso">
-                <div class="vida" :style="{width : `${vidaJogador}%`}"></div>
+            <div class="player jogador">
+                <p>Jogador</p>
+                <div class="barra-progresso">
+                    <div class="vida" :style="{width : `${vidaJogador}%`}"></div>
+                </div>
+                <p>{{ vidaJogador }}%</p>
             </div>
-            <p>{{ vidaJogador }}%</p>
+
+            <div class="player monstro">
+                <p>Monstro</p>
+                <div class="barra-progresso">
+                    <div class="vida" :style="{width : `${this.vidaMonstro}%`}"></div>
+                </div>
+                <p>{{ vidaMonstro }}%</p>
+            </div>
+
         </div>
 
-        <div class="player monstro">
-            <p>Monstro</p>
-            <div class="barra-progresso">
-                <div class="vida" :style="{width : `${this.vidaMonstro}%`}"></div>
+        <div class="layout">
+            <div v-if="vidaMonstro <= 0" class="rVenceu">
+                <p>Você ganhou :)</p>
             </div>
-            <p>{{ vidaMonstro }}%</p>
+            <div v-if="vidaJogador <= 0" class="rPerdeu">
+                <p>Você perdeu :(</p>
+            </div>
+        </div>
+
+        <div class="layout">
+            <button @click="ataque" class="btn ataque">ATAQUE</button>
+            <button @click="ataqueEspecial" class=" btn ataqueEspecial">ATAQUE ESPECIAL</button>
+            <button @click="curar" class="btn curar">CURAR</button>
+            <button class="desistir">DESISTIR</button>
+        </div>
+
+        <div class="layout mensagens" v-if="primeiroAtaque" >
+            <div class="atacar monstroAtaque">Monstro atingiu Jogador com ...</div>
+            <div class="atacar jogadorAtaque">Jogador atingiu Monstro com ...</div>
         </div>
 
     </div>
-
-    <div class="layout">
-        <button @click="ataque" class="ataque">ATAQUE</button>
-        <button @click="ataqueEspecial" class="ataqueEspecial">ATAQUE ESPECIAL</button>
-        <button @click="curar" class="curar">CURAR</button>
-        <button class="desistir">DESISTIR</button>
-    </div>
-
-    <div class="layout mensagens" v-if="primeiroAtaque">
-        <div class="atacar monstroAtaque">Monstro atingiu Jogador com ...</div>
-        <div class="atacar jogadorAtaque">Jogador atingiu Monstro com ...</div>
-    </div>
-
-   </div>
 </body>
+
 </html>
 <script src="app.js"></script>
