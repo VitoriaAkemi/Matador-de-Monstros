@@ -4,7 +4,8 @@ new Vue({
     data:{
         primeiroAtaque: false,
         vidaMonstro: 100,
-        vidaJogador: 100
+        vidaJogador: 100,
+        width: 100
 
     },
 
@@ -28,16 +29,23 @@ new Vue({
         ataque(){
             this.danoJogador(this.random()*2)
             this.danoMonstro(this.random())
+            this.primeiroAtaque = true
+            this.vidaJ()
+            this.vidaM()
         },
 
         ataqueEspecial(){
             this.danoJogador(this.random())
             this.danoMonstro(this.random()*2)
+            this.primeiroAtaque = true
+            this.vidaJ()
+            this.vidaM()
         },
 
         curar(){
             this.cura(this.random())
             this.danoJogador(this.random())
+            this.vidaJ()
         }
 
     }

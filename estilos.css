@@ -67,6 +67,11 @@ button{
 	border: 1px solid #000;
     margin-top: 3vh;
 }
+
+.vida{
+    background-color: green;
+    height: 100%;
+}
 /* .progresso {
 	background-color: red;
 	height: 20%;

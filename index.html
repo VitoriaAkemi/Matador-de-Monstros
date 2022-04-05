@@ -16,7 +16,7 @@
         <div class="player jogador">
             <p>Jogador</p>
             <div class="barra-progresso">
-                <div class="p-jogador"></div>
+                <div class="vida" :style="{width : `${vidaJogador}%`}"></div>
             </div>
             <p>{{ vidaJogador }}%</p>
         </div>
@@ -24,7 +24,7 @@
         <div class="player monstro">
             <p>Monstro</p>
             <div class="barra-progresso">
-                <div class="p-mostro"></div>
+                <div class="vida" :style="{width : `${this.vidaMonstro}%`}"></div>
             </div>
             <p>{{ vidaMonstro }}%</p>
         </div>
