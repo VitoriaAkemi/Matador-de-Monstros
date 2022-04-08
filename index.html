@@ -14,6 +14,7 @@
 
         <div class="layout">
 
+            <!--mostra a barra de vida do jogador-->
             <div class="player jogador">
                 <p>Jogador</p>
                 <div class="barra-progresso">
@@ -22,6 +23,7 @@
                 <p>{{ vidaJogador }}%</p>
             </div>
 
+            <!--mostra a barra de vida do monstro-->
             <div class="player monstro">
                 <p>Monstro</p>
                 <div class="barra-progresso">
@@ -32,7 +34,8 @@
 
         </div>
 
-        <div class="layout">
+        <!--exibe o resultado final do jogo-->
+        <div class="layout" v-if="fim">
             <div v-if="vidaMonstro <= 0" class="rVenceu">
                 <p>Você ganhou :)</p>
             </div>
@@ -41,6 +44,7 @@
             </div>
         </div>
 
+        <!--botoes-->
         <div class="layout">
             <div v-if="vidaMonstro != 0 && vidaJogador != 0">
                 <button @click="ataque" class="btn ataque">ATAQUE</button>
@@ -54,9 +58,10 @@
 
         </div>
 
-        <template class="layout" v-if="primeiroAtaque" v-for="r in rodadas">
-            <div class="atacar monstroAtaque">Monstro atingiu Jogador com {{ log[r][0] }}</div>
-            <div class="atacar jogadorAtaque">Jogador atingiu Monstro com {{ log[r][1] }}</div>
+        <!--log de ataques e cura-->
+        <template class="layout" v-if="primeiroAtaque" v-for="(r, i) in rodadas">
+            <div class="atacar monstroAtaque">Monstro atacou Jogador com {{ log[i][0] }}</div>
+            <div class="atacar jogadorAtaque">Jogador {{ log[i][2] }} {{ log[i][1] }}</div>
         </template>
 
     </div>
