@@ -5,7 +5,8 @@ new Vue({
         primeiroAtaque: false,
         vidaMonstro: 100,
         vidaJogador: 100,
-        rodadas: 0
+        rodadas: 0,
+        log: [0],
     },
 
     watch:{
@@ -32,26 +33,29 @@ new Vue({
         },
 
         ataque(){
-            let n = this.random()
-            this.danoJogador(n*2)
-            this.danoMonstro(n)
+            let n = this.random() 
+            this.danoJogador(n)
+            this.danoMonstro(n * 2)
             this.primeiroAtaque = true
+            this.validaLog([n, n * 2])
             this.validaVida()
-            return n
         },
 
         ataqueEspecial(){
             let n = this.random()
             this.danoJogador(n)
-            this.danoMonstro(n*2)
+            this.danoMonstro(n * 2)
             this.primeiroAtaque = true
+            this.validaLog([n, n * 2])
             this.validaVida()
-            return n 
         },
 
         curar(){
-            this.cura(this.random())
-            this.danoJogador(this.random())
+            let n1 = this.random()
+            let n2 = this.random()
+            this.cura(n1)
+            this.danoJogador(n2)
+            this.validaLog([n1, n2])
             this.validaVida()
         },
 
@@ -59,7 +63,8 @@ new Vue({
             this.vidaJogador = 100
             this.vidaMonstro = 100
             this.primeiroAtaque = false
-            rodadas = 0
+            this.rodadas = 0
+            this.log = [0]
         },
 
         validaVida(){
@@ -71,6 +76,10 @@ new Vue({
             }
             this.rodadas++
             this.vidaBaixa()
+        },
+
+        validaLog(numero){
+            this.log.push(numero)
         }
 
 

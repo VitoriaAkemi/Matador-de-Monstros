@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
     <link rel="stylesheet" href="estilos.css">
     <title>Game</title>
 </head>
@@ -56,8 +55,8 @@
         </div>
 
         <template class="layout" v-if="primeiroAtaque" v-for="r in rodadas">
-            <div class="atacar monstroAtaque">Monstro atingiu Jogador com {{ vidaJogador }}</div>
-            <div class="atacar jogadorAtaque">Jogador atingiu Monstro com ...</div>
+            <div class="atacar monstroAtaque">Monstro atingiu Jogador com {{ log[r][0] }}</div>
+            <div class="atacar jogadorAtaque">Jogador atingiu Monstro com {{ log[r][1] }}</div>
         </template>
 
     </div>
